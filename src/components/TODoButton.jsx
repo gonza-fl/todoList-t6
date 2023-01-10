@@ -1,5 +1,5 @@
-import { StyleSheet, Text, TouchableOpacity } from "react-native";
-import React from "react";
+import { StyleSheet, Text, TouchableOpacity } from 'react-native';
+import React from 'react';
 
 const TODoButton = (props) => {
   const { text } = props;
@@ -15,14 +15,14 @@ export default TODoButton;
 const styles = StyleSheet.create({
   touchableOpacitybttn: {
     flexBasis: 50,
-    backgroundColor: "#58d0e0",
+    backgroundColor: '#58d0e0',
     borderRadius: 19,
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: 'center',
+    justifyContent: 'center',
     marginBottom: 10,
   },
   txtBttn: {
-    color: "#fff",
-    fontWeight: "bold",
+    color: '#fff',
+    fontWeight: 'bold',
   },
 });
