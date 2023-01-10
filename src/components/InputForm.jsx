@@ -2,7 +2,7 @@ import { TextInput, StyleSheet } from 'react-native';
 
 import React from 'react';
 
-const InputForm = (prop) => {
+const InputForm = prop => {
   const { Placeholder } = prop;
   return <TextInput style={styles.textInput} placeholder={Placeholder} />;
 };

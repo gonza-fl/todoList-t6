@@ -7,12 +7,12 @@ const RegisterForm = () => {
   return (
     <View style={styles.containerInput}>
       <View style={styles.lastTextInput}>
-        <InputForm Placeholder="Ingrese su nombre completo" />
-        <InputForm Placeholder="Ingrese su correo electronico" />
-        <InputForm Placeholder="Ingrese una contraseña" />
-        <InputForm Placeholder="Confirmar la contraseña" />
+        <InputForm Placeholder='Ingrese su nombre completo' />
+        <InputForm Placeholder='Ingrese su correo electronico' />
+        <InputForm Placeholder='Ingrese una contraseña' />
+        <InputForm Placeholder='Confirmar la contraseña' />
       </View>
-      <TODoButton text="Registrarse" />
+      <TODoButton text='Registrarse' />
     </View>
   );
 };
