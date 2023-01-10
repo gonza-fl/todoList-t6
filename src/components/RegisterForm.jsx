@@ -1,5 +1,5 @@
 import { StyleSheet, View } from 'react-native';
-import ToDoButton from './ToDoButton';
+import ToDoButton from './TODoButton';
 import InputForm from './InputForm';
 
 const RegisterForm = () => {
