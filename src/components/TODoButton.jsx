@@ -1,6 +1,6 @@
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 
-const TODoButton = props => {
+const ToDoButton = props => {
   const { text } = props;
   return (
     <TouchableOpacity style={styles.touchableOpacitybttn}>
@@ -9,7 +9,7 @@ const TODoButton = props => {
   );
 };
 
-export default TODoButton;
+export default ToDoButton;
 
 const styles = StyleSheet.create({
   touchableOpacitybttn: {

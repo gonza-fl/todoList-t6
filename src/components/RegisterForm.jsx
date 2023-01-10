@@ -1,5 +1,5 @@
 import { StyleSheet, View } from 'react-native';
-import TODoButton from './ToDoButton';
+import ToDoButton from './ToDoButton';
 import InputForm from './InputForm';
 
 const RegisterForm = () => {
@@ -11,7 +11,7 @@ const RegisterForm = () => {
         <InputForm Placeholder='Ingrese una contraseña' />
         <InputForm Placeholder='Confirmar la contraseña' />
       </View>
-      <TODoButton text='Registrarse' />
+      <ToDoButton text='Registrarse' />
     </View>
   );
 };
