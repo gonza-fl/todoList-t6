@@ -1,11 +1,12 @@
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 import React from 'react';
 import RegisterForm from '../components/RegisterForm';
+import { elipse } from '../data/media-url';
 
 const RegisterScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <Image source={require('../images/elipse.png')} style={[styles.bgImage, styles.nose]} />
+      <Image source={{ uri: elipse }} style={[styles.bgImage, styles.nose]} />
       <Text style={[styles.textBold, styles.titulo]}>Bienvenido a Bordo!</Text>
       <Text>Vamos ayudarte a cumplir con tus tareas</Text>
       <RegisterForm />
