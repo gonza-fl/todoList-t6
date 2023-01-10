@@ -1,6 +1,6 @@
-import { TextInput, StyleSheet } from "react-native";
+import { TextInput, StyleSheet } from 'react-native';
 
-import React from "react";
+import React from 'react';
 
 const InputForm = (prop) => {
   const { Placeholder } = prop;
@@ -11,7 +11,7 @@ export default InputForm;
 
 const styles = StyleSheet.create({
   textInput: {
-    backgroundColor: "#ffffff",
+    backgroundColor: '#ffffff',
     width: 300,
     borderRadius: 50,
     paddingHorizontal: 50,

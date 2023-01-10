@@ -5,10 +5,7 @@ import RegisterForm from '../components/RegisterForm';
 const RegisterScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <Image
-        source={require('../images/elipse.png')}
-        style={[styles.bgImage, styles.nose]}
-      />
+      <Image source={require('../images/elipse.png')} style={[styles.bgImage, styles.nose]} />
       <Text style={[styles.textBold, styles.titulo]}>Bienvenido a Bordo!</Text>
       <Text>Vamos ayudarte a cumplir con tus tareas</Text>
       <RegisterForm />
@@ -36,12 +33,12 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   bgImage: {
-    position: "absolute",
+    position: 'absolute',
     top: -100,
     left: -100,
     right: -100,
     bottom: -100,
-    resizeMode: "contain",
+    resizeMode: 'contain',
   },
   textBold: {
     fontWeight: 'bold',
