@@ -3,6 +3,11 @@ module.exports = {
     es2021: true,
     node: true,
   },
+  settings: {
+    react: {
+      version: 'detect',
+    },
+  },
   extends: [
     'plugin:react/recommended',
     'plugin:react/jsx-runtime',
