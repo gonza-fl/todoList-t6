@@ -1,7 +1,6 @@
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
-import React from 'react';
 
-const TODoButton = (props) => {
+const TODoButton = props => {
   const { text } = props;
   return (
     <TouchableOpacity style={styles.touchableOpacitybttn}>

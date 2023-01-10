@@ -1,5 +1,4 @@
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
-import React from 'react';
 import RegisterForm from '../components/RegisterForm';
 import { elipse } from '../data/media-url';
 

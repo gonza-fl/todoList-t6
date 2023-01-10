@@ -6,7 +6,9 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "format": "prettier --write .",
+    "lint": "eslint --fix .  --ext .js,.jsx"
   },
   "dependencies": {
     "@react-navigation/native": "^6.1.1",
@@ -21,11 +23,13 @@
   "devDependencies": {
     "@babel/core": "^7.12.9",
     "eslint": "^8.31.0",
+    "eslint-config-prettier": "^8.6.0",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-n": "^15.6.0",
     "eslint-plugin-promise": "^6.1.1",
-    "eslint-plugin-react": "^7.31.11"
+    "eslint-plugin-react": "^7.31.11",
+    "prettier": "^2.8.2"
   },
   "private": true
 }
