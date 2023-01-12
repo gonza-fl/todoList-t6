@@ -1,23 +1,22 @@
 import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
 import { login } from '../data/media-url';
-import React from 'react'
 import LoginForm from '../components/LoginForm';
 
 const LoginScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
-     <Text style={[styles.textBold, styles.titulo]}>¡Bienvenido de vuelta!</Text>
-     <Image source={{ uri: login }} style={[styles.bgImage, styles.nose]} />
-    <LoginForm/>
-    <Text> ¿Olvidaste tu contraseña? </Text>
-    <TouchableOpacity onPress={() => navigation.navigate('Register')}>
-          <Text style={[styles.textBold, styles.color]}>Recuperar contraseña</Text>
-        </TouchableOpacity>
-      </View>
-    );
-  };
+      <Text style={[styles.textBold, styles.titulo]}>¡Bienvenido de vuelta!</Text>
+      <Image source={{ uri: login }} style={[styles.bgImage, styles.nose]} />
+      <LoginForm />
+      <Text> ¿Olvidaste tu contraseña? </Text>
+      <TouchableOpacity onPress={() => navigation.navigate('Register')}>
+        <Text style={[styles.textBold, styles.color]}>Recuperar contraseña</Text>
+      </TouchableOpacity>
+    </View>
+  );
+};
 
-export default LoginScreen
+export default LoginScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
