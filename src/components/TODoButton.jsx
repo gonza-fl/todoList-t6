@@ -1,9 +1,8 @@
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 
-const ToDoButton = props => {
-  const { text } = props;
+const ToDoButton = ({ text, handleOnpress }) => {
   return (
-    <TouchableOpacity style={styles.touchableOpacitybttn}>
+    <TouchableOpacity style={styles.touchableOpacitybttn} onPress={handleOnpress}>
       <Text style={styles.txtBttn}>{text}</Text>
     </TouchableOpacity>
   );
