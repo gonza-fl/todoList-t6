@@ -34,7 +34,7 @@ const LoginForm = () => {
           Placeholder='Ingrese su contraseña'
           handleChangeText={setPassword}
           value={password}
-          isSecure={true}
+          isHiden={true}
         />
       </View>
       <ToDoButton text='Iniciar Sesion' handleOnpress={login} />
