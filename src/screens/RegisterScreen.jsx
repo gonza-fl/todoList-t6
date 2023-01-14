@@ -8,6 +8,7 @@ const RegisterScreen = ({ navigation }) => {
       <Image source={{ uri: elipse }} style={[styles.bgImage, styles.nose]} />
       <Text style={[styles.textBold, styles.titulo]}>Bienvenido a Bordo!</Text>
       <Text>Vamos ayudarte a cumplir con tus tareas</Text>
+
       <RegisterForm />
       <View style={styles.footer}>
         <Text>¿Ya tienes una cuenta? </Text>

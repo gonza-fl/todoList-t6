@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-class LocalStorage {
+class localStorage {
   static getItem(key) {
     return AsyncStorage.getItem(key);
   }
@@ -18,4 +18,4 @@ class LocalStorage {
   }
 }
 
-export default LocalStorage;
+export default localStorage;

@@ -1,5 +1,5 @@
 import { StyleSheet, View } from 'react-native';
-import ToDoButton from './ToDoButton';
+import TODoButton from './TODoButton';
 import InputForm from './InputForm';
 import { useState } from 'react';
 import { URL } from '../data/urls';
@@ -34,10 +34,10 @@ const LoginForm = () => {
           Placeholder='Ingrese su contraseña'
           handleChangeText={setPassword}
           value={password}
-          isSecure={true}
+          isHiden={true}
         />
       </View>
-      <ToDoButton text='Iniciar Sesion' handleOnpress={login} />
+      <TODoButton text='Iniciar Sesion' handleOnpress={login} />
     </View>
   );
 };
