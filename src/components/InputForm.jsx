@@ -1,13 +1,13 @@
 import { TextInput, StyleSheet } from 'react-native';
 
-const InputForm = ({ Placeholder, handleChangeText, value, isSecure = false }) => {
+const InputForm = ({ Placeholder, handleChangeText, value, isHiden = false }) => {
   return (
     <TextInput
       style={styles.textInput}
       placeholder={Placeholder}
       onChangeText={handleChangeText}
       value={value}
-      secureTextEntry={isSecure}
+      secureTextEntry={isHiden}
     />
   );
 };
