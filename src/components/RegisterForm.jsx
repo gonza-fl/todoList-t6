@@ -2,7 +2,7 @@ import { StyleSheet, View } from 'react-native';
 import TODoButton from './TODoButton';
 import InputForm from './InputForm';
 import { useState } from 'react';
-import { URL } from '../data/urls';
+import { BASE_PATH } from '../configs/api-url';
 import localStorage from '../helpers/localStorage';
 
 const FORM_FIELDS = {
@@ -22,7 +22,7 @@ const RegisterForm = () => {
   const sendDataToRegister = () => {
     if (formData.password === formData.confirmPassword) {
       delete formData.confirmPassword;
-      fetch(URL.REGISTER_USER, {
+      fetch(BASE_PATH.REGISTER_USER, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),

@@ -2,14 +2,14 @@ import { StyleSheet, View } from 'react-native';
 import TODoButton from './TODoButton';
 import InputForm from './InputForm';
 import { useState } from 'react';
-import { URL } from '../data/urls';
+import { BASE_PATH } from '../configs/api-url';
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const login = () => {
-    fetch(URL.LOGIN, {
+    fetch(BASE_PATH.LOGIN, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

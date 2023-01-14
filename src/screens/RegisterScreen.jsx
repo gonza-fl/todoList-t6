@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 import RegisterForm from '../components/RegisterForm';
-import { elipse } from '../data/media-url';
+import { elipse } from '../configs/media-url';
 
 const RegisterScreen = ({ navigation }) => {
   return (
