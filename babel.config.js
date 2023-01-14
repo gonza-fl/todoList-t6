@@ -10,7 +10,8 @@ module.exports = function (api) {
           extensions: ['.js', '.jsx', '.android.js'],
           alias: {
             '@components': './src/components',
-            '@data': './src/data',
+            '@configs': './src/configs',
+            '@helpers': './src/helpers',
             '@screens': './src/screens',
           },
         },
