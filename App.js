@@ -10,7 +10,10 @@ export default function App() {
   LogBox.ignoreLogs(['Remote debugger']);
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator
+        screenOptions={{
+          headerShown: false,
+        }}>
         <Stack.Screen name='Register' component={RegisterScreen} />
         <Stack.Screen name='Login' component={LoginScreen} />
       </Stack.Navigator>

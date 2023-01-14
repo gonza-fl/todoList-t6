@@ -1,6 +1,6 @@
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 
-const ToDoButton = ({ text, handleOnpress }) => {
+const TODoButton = ({ text, handleOnpress }) => {
   return (
     <TouchableOpacity style={styles.touchableOpacitybttn} onPress={handleOnpress}>
       <Text style={styles.txtBttn}>{text}</Text>
@@ -8,7 +8,7 @@ const ToDoButton = ({ text, handleOnpress }) => {
   );
 };
 
-export default ToDoButton;
+export default TODoButton;
 
 const styles = StyleSheet.create({
   touchableOpacitybttn: {
