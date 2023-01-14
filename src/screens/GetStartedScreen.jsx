@@ -3,11 +3,10 @@ import { useNavigation } from '@react-navigation/native';
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 //import {onboarding, elipse} from '../data/media-url';
 import images from '../data/media-url'
-import {Dimensions} from 'react-native';
-//import ToDoButton from './components/TODoButton';
+
 import ToDoButton from '../components/TODoButton';
 
-//<ToDoButton text='Comenzar' />
+
 
 
 const GetStartedScreen =() =>{
@@ -18,13 +17,13 @@ const GetStartedScreen =() =>{
     return(
         <View style={styles.container}>
              <Image source={{ uri: images.elipse }} style={styles.bgImage} />
-             <Image source={{uri: images.onboarding}}/>
+             <Image source={{uri: images.onboarding}} style={styles.getImage}/>
             <View style={styles.content}>
            
              <Text style={[styles.textBold, styles.titulo]}>Hacé tus cosas con ToDo</Text>
-             <Text style={styles.description}>Comienza a crear tus listas de tarea presionando el siguiente botón </Text>
+             <Text style={styles.description}>Comienza a crear tus listas de tareas para mantenerte organizado.{'\n'}Si estás listo presiona el siguiente botón... </Text>
             
-             <ToDoButton text="Comenzar" onPress={() => navigation.navigate("Login")} />
+             <ToDoButton text='Comenzar' onPress={() => navigation.navigate('Login')} />
             </View>
              
         </View>
@@ -41,26 +40,44 @@ const styles = StyleSheet.create({
       alignItems: 'center'
     },
     content: {
-        flexDirection: 'column',
-        justifyContent: 'space-evenly',
-        marginTop: 30,
+      flexDirection: 'column',
+      justifyContent: 'space-evenly',
+      marginTop: 30,
     },
     titulo: {
-      fontSize: 20,
-      marginTop: 120,
+      fontSize: 28,
+      top:90,
+      marginTop: 80,
       marginBottom: 20,
     },
     bgImage: {
-      width: 200,
+      width: 250,
       position: 'absolute',
-      top: 0,
-      left: 0,
+      top: -100,
+      left: -70,
       right: 0,
       bottom: 700,
       resizeMode: 'contain',
     },
-    description: {
-     marginBottom: 20,
+    getImage:{
+      width:50,
+      position:'absolute',
+      resizeMode: 'contain',
+      width:180,
+      top: -180,
+      left: 120,
+      right: -100,
+      bottom: -100,
+      marginBottom: 200,
+    },
+    description: { 
+     textAlign: 'center',
+     width:340,
+     top:80,
+     marginBottom: 200,
+     justifyContent: 'center',
+     alignItems:'center',
+     
     },
     textBold: {
       fontWeight: 'bold',
