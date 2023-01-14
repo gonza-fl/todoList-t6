@@ -62,7 +62,7 @@ const RegisterForm = () => {
           isHiden={true}
         />
       </View>
-      <ToDoButton text='Registrarse' handleOnpress={sendDataToRegister} />
+      <TODoButton text='Registrarse' handleOnpress={sendDataToRegister} />
     </View>
   );
 };
