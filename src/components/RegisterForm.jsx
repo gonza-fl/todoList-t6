@@ -3,6 +3,7 @@ import TODoButton from './TODoButton';
 import InputForm from './InputForm';
 import { useState } from 'react';
 import { BASE_PATH } from '../configs/api-url';
+import clientAxios from '../configs/clientAxios';
 import localStorage from '../helpers/localStorage';
 
 const FORM_FIELDS = {
@@ -12,24 +13,26 @@ const FORM_FIELDS = {
   confirmPassword: '',
 };
 
-const RegisterForm = () => {
+const RegisterForm = ({ navigation }) => {
   const [formData, setFormData] = useState(FORM_FIELDS);
 
   const handleChangeText = (key, text) => {
     setFormData({ ...formData, [key]: text });
   };
 
-  const sendDataToRegister = () => {
+  const sendDataToRegister = async () => {
     if (formData.password === formData.confirmPassword) {
       delete formData.confirmPassword;
-      fetch(BASE_PATH.REGISTER_USER, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      })
-        .then(response => response.json())
-        .then(data => console.log(data))
-        .catch(err => console.log({ error: err }));
+      try {
+        const {
+          data: { token },
+        } = await clientAxios.post(BASE_PATH.REGISTER_USER, formData);
+        localStorage.setItem('token', token);
+        setFormData(FORM_FIELDS);
+        navigation.navigate('Login');
+      } catch (error) {
+        console.log({ error });
+      }
     } else {
       console.log('password is not confirmed');
       setFormData(FORM_FIELDS);

@@ -16,6 +16,10 @@ class localStorage {
   static removeItem(key) {
     AsyncStorage.removeItem(key);
   }
+
+  static clearLocalStorage() {
+    return AsyncStorage.clear();
+  }
 }
 
 export default localStorage;

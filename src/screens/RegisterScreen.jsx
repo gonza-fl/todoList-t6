@@ -9,7 +9,7 @@ const RegisterScreen = ({ navigation }) => {
       <Text style={[styles.textBold, styles.titulo]}>Bienvenido a Bordo!</Text>
       <Text>Vamos ayudarte a cumplir con tus tareas</Text>
 
-      <RegisterForm />
+      <RegisterForm navigation={navigation} />
       <View style={styles.footer}>
         <Text>¿Ya tienes una cuenta? </Text>
         <TouchableOpacity onPress={() => navigation.navigate('Login')}>
