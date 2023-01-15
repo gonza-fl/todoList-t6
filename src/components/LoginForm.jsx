@@ -1,15 +1,15 @@
 import { StyleSheet, View } from 'react-native';
-import ToDoButton from './ToDoButton';
+import TODoButton from './TODoButton';
 import InputForm from './InputForm';
 import { useState } from 'react';
-import { URL } from '../data/urls';
+import { BASE_PATH } from '../configs/api-url';
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const login = () => {
-    fetch(URL.LOGIN, {
+    fetch(BASE_PATH.LOGIN, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -34,10 +34,10 @@ const LoginForm = () => {
           Placeholder='Ingrese su contraseña'
           handleChangeText={setPassword}
           value={password}
-          isSecure={true}
+          isHiden={true}
         />
       </View>
-      <ToDoButton text='Iniciar Sesion' handleOnpress={login} />
+      <TODoButton text='Iniciar Sesion' handleOnpress={login} />
     </View>
   );
 };

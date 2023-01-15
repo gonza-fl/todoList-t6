@@ -7,17 +7,19 @@ import GetStartedScreen from './src/screens/GetStartedScreen';
 const Stack = createNativeStackNavigator();
 
 export default function App() {
+  LogBox.ignoreLogs(['Remote debugger']);
   return (
     <NavigationContainer>
       <Stack.Navigator
           initialRouteName='GetStarted'
           screenOptions={{
-          headerShown:false,
-         }}
+          headerShown: false,
+        }}
       >
         <Stack.Screen name='GetStarted' component={GetStartedScreen} />
         <Stack.Screen name='Register' component={RegisterScreen} />
         <Stack.Screen name='Login' component={LoginScreen} />
+        <Stack.Screen name='ToDoList' component={ToDoListScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
