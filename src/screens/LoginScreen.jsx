@@ -1,6 +1,6 @@
 import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
-import { login } from '../configs/media-url';
-import LoginForm from '../components/LoginForm';
+import { login } from '@configs/media-url';
+import LoginForm from '@components/LoginForm';
 
 const LoginScreen = ({ navigation }) => {
   return (

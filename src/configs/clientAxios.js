@@ -1,5 +1,5 @@
 import axios from 'axios';
-import localStorage from '../helpers/localStorage';
+import localStorage from '@helpers/localStorage';
 import { API_URL } from './api-url';
 
 const defaultOptions = {
