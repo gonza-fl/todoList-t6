@@ -5,9 +5,7 @@ export default function Task({ title, description, handleDelete, isCompleted, ch
   return (
     <View style={styles.cardContainer}>
       {(isCompleted && (
-        <LinearGradient
-          colors={['#ffe100', '#ff4d00', '#ff0000']}
-          style={styles.completeBar}></LinearGradient>
+        <LinearGradient colors={['#a00498', '#f7bd56']} style={styles.completeBar}></LinearGradient>
       )) || <View style={styles.incompleteBar}></View>}
       <View style={styles.textContainer}>
         <Text style={styles.title}>{title}</Text>
@@ -25,7 +23,7 @@ export default function Task({ title, description, handleDelete, isCompleted, ch
         <View style={styles.switchContainer}>
           <Switch
             style={styles.switch}
-            trackColor={{ true: '#fd3333', false: '#ccc' }}
+            trackColor={{ true: '#a00498', false: '#ccc' }}
             thumbColor='#fff'
             onValueChange={changeTaskState}
             value={isCompleted}

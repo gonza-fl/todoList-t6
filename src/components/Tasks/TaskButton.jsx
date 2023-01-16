@@ -7,7 +7,7 @@ const TaskButton = ({ renderAllTasks }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   return (
     <View style={styles.taskButton}>
-      <LinearGradient colors={['#ffe100', '#ff4d00', '#ff0000']} style={styles.gradient}>
+      <LinearGradient colors={['#a00498', '#f7bd56']} style={styles.gradient}>
         <TouchableOpacity style={styles.touchableOpacity} onPress={() => setIsModalVisible(true)}>
           <Text style={styles.textButton}>+</Text>
         </TouchableOpacity>

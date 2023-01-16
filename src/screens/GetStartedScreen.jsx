@@ -8,10 +8,10 @@ const GetStartedScreen = ({ navigation }) => {
       <Image source={{ uri: images.elipse }} style={styles.bgImage} />
       <Image source={{ uri: images.onboarding }} style={styles.getImage} />
       <View style={styles.content}>
-        <Text style={[styles.textBold, styles.titulo]}>      Hacé tus cosas con ToDo</Text>
+        <Text style={[styles.textBold, styles.titulo]}>Hacé tus cosas con ToDo</Text>
         <Text style={styles.description}>
-          Esta aplicación te permitirá crear listas de tareas para mantenerte organizado.{'\n'}Si estás listo
-          presiona el siguiente botón...{' '}
+          Esta aplicación te permitirá crear listas de tareas para mantenerte organizado.{'\n'}Si
+          estás listo presiona el siguiente botón...
         </Text>
 
         <TODoButton text='Comenzar' handleOnpress={() => navigation.navigate('Login')} />
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor:'#161819',
+    backgroundColor: '#161819',
   },
   content: {
     flexDirection: 'column',
@@ -68,7 +68,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     color: '#e8e8e9',
-    
   },
   textBold: {
     fontWeight: 'bold',

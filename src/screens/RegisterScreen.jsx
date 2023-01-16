@@ -7,16 +7,17 @@ const RegisterScreen = ({ navigation }) => {
     <View style={styles.container}>
       <Image source={{ uri: elipse }} style={[styles.bgImage, styles.nose]} />
       <Text style={[styles.textBold, styles.titulo]}>Te damos la bienvenida, </Text>
-      <Text style= {[styles.subTitulo]}> registrate para que te ayudemos a cumplir con tus tareas. </Text>
+      <Text style={[styles.subTitulo]}>
+        registrate para que te ayudemos a cumplir con tus tareas.
+      </Text>
 
       <RegisterForm navigation={navigation} />
       <View style={styles.footer}>
-        <Text style= {[styles.subTitulo]}>¿Ya tienes una cuenta? </Text>
+        <Text style={[styles.subTitulo]}>¿Ya tienes una cuenta? </Text>
         <TouchableOpacity onPress={() => navigation.navigate('Login')}>
-          <Text style={[styles.textBold, styles.color]}>  Inicia sesión</Text>
+          <Text style={[styles.textBold, styles.color]}> Inicia sesión</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('ToDoList')}>
-        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('ToDoList')}></TouchableOpacity>
       </View>
     </View>
   );
@@ -29,7 +30,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor:'#070d0d',
+    backgroundColor: '#161819',
   },
   titulo: {
     fontSize: 30,
@@ -38,7 +39,7 @@ const styles = StyleSheet.create({
     color: '#e8e8e9',
   },
   subTitulo: {
-    color:'#e8e8e9', 
+    color: '#e8e8e9',
   },
   bgImage: {
     position: 'absolute',
