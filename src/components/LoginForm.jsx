@@ -41,7 +41,7 @@ const LoginForm = ({ navigation }) => {
           isHiden={true}
         />
       </View>
-      <TODoButton text='Iniciar Sesion' handleOnpress={login} />
+      <TODoButton text='Iniciar sesión' handleOnpress={login} />
     </View>
   );
 };
