@@ -11,8 +11,8 @@ const defaultOptions = {
 
 const clientAxios = axios.create(defaultOptions);
 
-clientAxios.interceptors.request.use(config => {
-  const token = localStorage.getItem('token');
+clientAxios.interceptors.request.use(async config => {
+  const token = await localStorage.getItem('token');
   config.headers.Authorization = token || '';
   return config;
 });

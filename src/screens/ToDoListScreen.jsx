@@ -1,24 +1,25 @@
 import { useEffect, useState } from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 import { BASE_PATH } from '../configs/api-url';
-
-const Authorization =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2JjN2M5Y2I3NjZjMTE0NTRmOGJkMDYiLCJpYXQiOjE2NzM1MjYxMjR9.uUb95MM18GMCa-SEdSMS4WNZ-118PtmKg2wghWSh-Wg';
+import clientAxios from '../configs/clientAxios';
 
 const ToDoListScreen = () => {
   const [tasks, setTasks] = useState(null);
 
   useEffect(() => {
-    fetch(`${BASE_PATH.TASK}/`, {
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization,
-      },
-    })
-      .then(response => response.json())
-      .then(({ data }) => setTasks(data))
-      .catch(err => console.log(err));
+    getAllTasks();
   }, []);
+
+  const getAllTasks = async () => {
+    try {
+      const {
+        data: { data },
+      } = await clientAxios(`${BASE_PATH.TASK}`);
+      setTasks(data);
+    } catch (error) {
+      console.log('🚀 ~ file: ToDoListScreen.jsx:18 ~ getAllTasks ~ error', error);
+    }
+  };
 
   return (
     <View>
