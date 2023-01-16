@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Text, TouchableOpacity, View } from 'react-native';
+import { Button, StyleSheet, Text, View } from 'react-native';
 import { BASE_PATH } from '@configs/api-url';
 import clientAxios from '@configs/clientAxios';
 
@@ -9,6 +9,15 @@ const ToDoListScreen = () => {
   useEffect(() => {
     getAllTasks();
   }, []);
+
+  const handleDelete = async id => {
+    try {
+      await clientAxios.delete(`${BASE_PATH.TASK}/${id}`);
+      getAllTasks();
+    } catch (error) {
+      console.log('🚀 ~ file: ToDoListScreen.jsx:31 ~ handlePress ~ error', error);
+    }
+  };
 
   const getAllTasks = async () => {
     try {
@@ -22,15 +31,24 @@ const ToDoListScreen = () => {
   };
 
   return (
-    <View>
+    <View style={styles.container}>
       {tasks &&
         tasks.map((task, i) => (
-          <TouchableOpacity key={i}>
+          <View key={task._id}>
             <Text>{task.description}</Text>
-          </TouchableOpacity>
+            <Button title='delete' onPress={() => handleDelete(task._id)} />
+          </View>
         ))}
     </View>
   );
 };
 
 export default ToDoListScreen;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
