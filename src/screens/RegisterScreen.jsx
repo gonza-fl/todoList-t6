@@ -15,6 +15,9 @@ const RegisterScreen = ({ navigation }) => {
         <TouchableOpacity onPress={() => navigation.navigate('Login')}>
           <Text style={[styles.textBold, styles.color]}>Inicia sesión</Text>
         </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('ToDoList')}>
+          <Text>Tasks</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );

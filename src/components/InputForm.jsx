@@ -17,9 +17,9 @@ export default InputForm;
 const styles = StyleSheet.create({
   textInput: {
     backgroundColor: '#ffffff',
-    width: 300,
+    width: 'auto',
     borderRadius: 50,
-    paddingHorizontal: 50,
+    paddingHorizontal: 20,
     flexBasis: 50,
     margin: 8,
   },

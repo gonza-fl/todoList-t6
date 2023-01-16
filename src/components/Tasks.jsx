@@ -1,4 +1,5 @@
 import { StyleSheet, Text, View, TouchableOpacity, Switch } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 
 export default function Tasks() {
   return (
@@ -6,7 +7,7 @@ export default function Tasks() {
       <View style={styles.cardContainer}>
         <View style={styles.incompleteBar}></View>
         <View style={styles.textContainer}>
-          <Text style={styles.title}>Tarea incompleta</Text>
+          <Text style={styles.title}>Título</Text>
           <Text style={styles.description}>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit nostrum voluptate placeat
             tenetur vel mollitia possimus, vero ipsam cum voluptates incidunt quidem laborum tempore
@@ -16,10 +17,10 @@ export default function Tasks() {
         <View style={styles.margin}>
           <View style={styles.buttonContainer}>
             <TouchableOpacity style={styles.button1}>
-              <Text>Editar</Text>
+              <Text style={styles.white}>Editar</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.button2}>
-              <Text>Borrar</Text>
+              <Text style={styles.white}>Borrar</Text>
             </TouchableOpacity>
           </View>
           <View style={styles.switchContainer}>
@@ -32,28 +33,30 @@ export default function Tasks() {
         </View>
       </View>
       <View style={styles.cardContainer}>
-        <View style={styles.completeBar}></View>
+        <LinearGradient
+          // Button Linear Gradient
+          colors={['#ffe100', '#ff4d00', '#ff0000']}
+          style={styles.completeBar}></LinearGradient>
         <View style={styles.textContainer}>
-          <Text style={styles.title}>Tarea completa</Text>
+          <Text style={styles.title}>Título</Text>
           <Text style={styles.description}>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit nostrum voluptate placeat
-            tenetur vel mollitia possimus, vero ipsam. or sit amet consectetur adipisicing elit.
-            Fugit nostrum voluptate placeat tenetur vel moll
+            tenetur vel mollitia possimus, vero ipsam.
           </Text>
         </View>
         <View style={styles.margin}>
           <View style={styles.buttonContainer}>
             <TouchableOpacity style={styles.button1}>
-              <Text>Editar</Text>
+              <Text style={styles.white}>Editar</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.button2}>
-              <Text>Borrar</Text>
+              <Text style={styles.white}>Borrar</Text>
             </TouchableOpacity>
           </View>
           <View style={styles.switchContainer}>
             <Switch
               style={styles.switch}
-              trackColor={{ true: '#00bfff', false: '#ccc' }}
+              trackColor={{ true: '#fd3333', false: '#ccc' }}
               thumbColor='#fff'
               value={true}
             />
@@ -73,9 +76,8 @@ const styles = StyleSheet.create({
   completeBar: {
     height: '100%',
     width: 10,
-    backgroundColor: '#00bfff',
-    borderBottomStartRadius: 10,
-    borderTopStartRadius: 10,
+    borderTopLeftRadius: 20,
+    borderBottomLeftRadius: 20,
   },
   incompleteBar: {
     height: 'auto',
@@ -86,16 +88,16 @@ const styles = StyleSheet.create({
   },
   cardContainer: {
     flexDirection: 'row',
-    backgroundColor: '#fff',
+    backgroundColor: '#161819',
     margin: 15,
     borderRadius: 10,
-    shadowColor: '#000',
+    shadowColor: '#fff',
     shadowOffset: {
-      width: 0,
+      width: 1,
       height: 1,
     },
-    shadowOpacity: 0.22,
-    shadowRadius: 2.22,
+    shadowOpacity: 1.22,
+    shadowRadius: 4.22,
     elevation: 2,
   },
   textContainer: {
@@ -107,10 +109,12 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 15,
     marginTop: 15,
+    color: 'white',
   },
   description: {
     fontSize: 16,
     marginBottom: 53,
+    color: 'white',
   },
   buttonContainer: {
     flex: 1,
@@ -128,7 +132,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 0,
     right: 50,
-    backgroundColor: '#bdbdbd',
+    backgroundColor: '#4a4a4a',
     paddingHorizontal: 10,
     padding: 5,
     borderRadius: 10,
@@ -138,7 +142,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 0,
     right: -15,
-    backgroundColor: '#de0000be',
+    backgroundColor: '#fd3333',
     paddingHorizontal: 10,
     padding: 5,
     borderRadius: 10,
@@ -146,6 +150,9 @@ const styles = StyleSheet.create({
   switch: {
     position: 'absolute',
     bottom: 0,
+  },
+  white: {
+    color: 'white',
   },
   margin: {
     marginRight: 10,
