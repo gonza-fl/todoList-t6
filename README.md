@@ -24,3 +24,8 @@ ___
 * Escanee el código QR desde el móvil o abra la pestaña de exploración, presione buscar e ingrese la URL que se muestra en la terminal.
 ___
 ## Colaboradores
+<a href="https://github.com/gonza-fl/team6-project/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=gonza-fl/team6-project" />
+</a>
+
+Made with [contrib.rocks](https://contrib.rocks).
