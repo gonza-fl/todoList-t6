@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, Image } from 'react-native';
-import images from '../configs/media-url';
-import TODoButton from '../components/TODoButton';
+import images from '@configs/media-url';
+import TODoButton from '@components/TODoButton';
 
 const GetStartedScreen = ({ navigation }) => {
   return (

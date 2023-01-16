@@ -3,7 +3,7 @@ import { StyleSheet, View } from 'react-native';
 import { BASE_PATH } from '@configs/api-url';
 import clientAxios from '@configs/clientAxios';
 import TaskButton from '@components/Tasks/TaskButton';
-import Task from '../components/Tasks/Task';
+import Task from '@components/Tasks/Task';
 
 const ToDoListScreen = () => {
   const [tasks, setTasks] = useState(null);
