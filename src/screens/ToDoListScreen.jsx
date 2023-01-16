@@ -9,28 +9,28 @@ const ToDoListScreen = () => {
   const [tasks, setTasks] = useState(null);
 
   useEffect(() => {
-    getAllTasks();
+    renderAllTasks();
   }, []);
 
   const changeTaskState = async (id, completed) => {
     await clientAxios.put(`${BASE_PATH.TASK}/${id}`, { completed: !completed });
-    getAllTasks();
+    renderAllTasks();
   };
 
-  const getAllTasks = async () => {
+  const renderAllTasks = async () => {
     try {
       const {
         data: { data },
       } = await clientAxios(`${BASE_PATH.TASK}`);
       setTasks(data);
     } catch (error) {
-      console.log('🚀 ~ file: ToDoListScreen.jsx:18 ~ getAllTasks ~ error', error);
+      console.log('🚀 ~ file: ToDoListScreen.jsx:18 ~ renderAllTasks ~ error', error);
     }
   };
   const handleDelete = async id => {
     try {
       await clientAxios.delete(`${BASE_PATH.TASK}/${id}`);
-      getAllTasks();
+      renderAllTasks();
     } catch (error) {
       console.log('🚀 ~ file: ToDoListScreen.jsx:31 ~ handlePress ~ error', error);
     }
@@ -50,7 +50,7 @@ const ToDoListScreen = () => {
           />
         ))}
       <View>
-        <TaskButton />
+        <TaskButton renderAllTasks={renderAllTasks} />
       </View>
     </View>
   );
