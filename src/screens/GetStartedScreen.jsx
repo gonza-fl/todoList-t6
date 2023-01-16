@@ -1,11 +1,8 @@
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import React from 'react'
 import { useNavigation } from '@react-navigation/native';
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
-//import {onboarding, elipse} from '../data/media-url';
-import images from '../data/media-url'
-
-import ToDoButton from '../components/TODoButton';
-
+import images from '../configs/media-url'
+import TODoButton from '../components/TODoButton';
 
 
 
@@ -13,17 +10,16 @@ const GetStartedScreen =() =>{
 
     const navigation= useNavigation();
 
-
     return(
         <View style={styles.container}>
-             <Image source={{ uri: images.elipse }} style={styles.bgImage} />
+             <Image source={{ uri:images.elipse }} style={styles.bgImage} />
              <Image source={{uri: images.onboarding}} style={styles.getImage}/>
             <View style={styles.content}>
            
              <Text style={[styles.textBold, styles.titulo]}>Hacé tus cosas con ToDo</Text>
              <Text style={styles.description}>Comienza a crear tus listas de tareas para mantenerte organizado.{'\n'}Si estás listo presiona el siguiente botón... </Text>
             
-             <ToDoButton text='Comenzar' onPress={() => navigation.navigate('Login')} />
+             <TODoButton text='Comenzar' onPress={() => navigation.navigate('Login')} />
             </View>
              
         </View>
