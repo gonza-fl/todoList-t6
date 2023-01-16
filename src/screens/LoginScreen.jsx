@@ -5,12 +5,13 @@ import LoginForm from '@components/LoginForm';
 const LoginScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <Text style={[styles.textBold, styles.titulo]}>¡Bienvenido de vuelta!</Text>
+      <Text style={[styles.textBold, styles.titulo]}> Bienvenido, </Text>
       <Image source={{ uri: login }} style={[styles.bgImage, styles.nose]} />
+      <Text style= {[styles.subTitulo1]}> coloca tus datos para ingresar a tu cuenta. </Text>
       <LoginForm navigation={navigation} />
-      <Text> ¿Olvidaste tu contraseña? </Text>
+      <Text style= {[styles.subTitulo]}> ¿No tenés una cuenta? </Text>
       <TouchableOpacity onPress={() => navigation.navigate('Register')}>
-        <Text style={[styles.textBold, styles.color]}>Recuperar contraseña</Text>
+        <Text style={[styles.textBold, styles.color]}>Registrarse</Text>
       </TouchableOpacity>
     </View>
   );
@@ -22,17 +23,25 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor:'#161819',
   },
   titulo: {
-    fontSize: 30,
-    marginTop: 20,
-    marginBottom: 80,
+    fontSize: 50,
+    marginTop: 30,
+    marginBottom: 10,
+    color: '#e8e8e9',
+  },
+  subTitulo: {
+    color:'#e8e8e9', 
+  },
+  subTitulo1: {
+    color:'#e8e8e9',
   },
   textBold: {
     fontWeight: 'bold',
   },
   color: {
-    color: '#58d0e0',
+    color: '#a00498',
   },
   bgImage: {
     position: 'absolute',

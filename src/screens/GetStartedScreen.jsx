@@ -8,9 +8,9 @@ const GetStartedScreen = ({ navigation }) => {
       <Image source={{ uri: images.elipse }} style={styles.bgImage} />
       <Image source={{ uri: images.onboarding }} style={styles.getImage} />
       <View style={styles.content}>
-        <Text style={[styles.textBold, styles.titulo]}>Hacé tus cosas con ToDo</Text>
+        <Text style={[styles.textBold, styles.titulo]}>      Hacé tus cosas con ToDo</Text>
         <Text style={styles.description}>
-          Comienza a crear tus listas de tareas para mantenerte organizado.{'\n'}Si estás listo
+          Esta aplicación te permitirá crear listas de tareas para mantenerte organizado.{'\n'}Si estás listo
           presiona el siguiente botón...{' '}
         </Text>
 
@@ -26,6 +26,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor:'#161819',
   },
   content: {
     flexDirection: 'column',
@@ -33,10 +34,11 @@ const styles = StyleSheet.create({
     marginTop: 30,
   },
   titulo: {
-    fontSize: 28,
+    fontSize: 30,
     top: 90,
-    marginTop: 80,
-    marginBottom: 20,
+    marginTop: 150,
+    marginBottom: 40,
+    color: '#e8e8e9',
   },
   bgImage: {
     width: 250,
@@ -58,12 +60,15 @@ const styles = StyleSheet.create({
     marginBottom: 200,
   },
   description: {
+    fontSize: 20,
     textAlign: 'center',
     width: 340,
     top: 80,
     marginBottom: 200,
     justifyContent: 'center',
     alignItems: 'center',
+    color: '#e8e8e9',
+    
   },
   textBold: {
     fontWeight: 'bold',
