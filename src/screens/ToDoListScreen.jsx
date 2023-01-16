@@ -1,34 +1,43 @@
 import { useEffect, useState } from 'react';
-import { Text, TouchableOpacity, StyleSheet, View } from 'react-native';
-import { BASE_PATH } from '../configs/api-url';
-import Tasks from '../components/Tasks';
-import TaskButton from '../components/TaskButton';
-
-const Authorization =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2JjN2M5Y2I3NjZjMTE0NTRmOGJkMDYiLCJpYXQiOjE2NzM1MjYxMjR9.uUb95MM18GMCa-SEdSMS4WNZ-118PtmKg2wghWSh-Wg';
+import { Button, StyleSheet, Text, View } from 'react-native';
+import { BASE_PATH } from '@configs/api-url';
+import clientAxios from '@configs/clientAxios';
 
 const ToDoListScreen = () => {
   const [tasks, setTasks] = useState(null);
 
   useEffect(() => {
-    fetch(`${BASE_PATH.TASK}/`, {
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization,
-      },
-    })
-      .then(response => response.json())
-      .then(({ data }) => setTasks(data))
-      .catch(err => console.log(err));
+    getAllTasks();
   }, []);
+
+  const handleDelete = async id => {
+    try {
+      await clientAxios.delete(`${BASE_PATH.TASK}/${id}`);
+      getAllTasks();
+    } catch (error) {
+      console.log('🚀 ~ file: ToDoListScreen.jsx:31 ~ handlePress ~ error', error);
+    }
+  };
+
+  const getAllTasks = async () => {
+    try {
+      const {
+        data: { data },
+      } = await clientAxios(`${BASE_PATH.TASK}`);
+      setTasks(data);
+    } catch (error) {
+      console.log('🚀 ~ file: ToDoListScreen.jsx:18 ~ getAllTasks ~ error', error);
+    }
+  };
 
   return (
     <View style={styles.container}>
       {tasks &&
         tasks.map((task, i) => (
-          <TouchableOpacity key={i}>
+          <View key={task._id}>
             <Text>{task.description}</Text>
-          </TouchableOpacity>
+            <Button title='delete' onPress={() => handleDelete(task._id)} />
+          </View>
         ))}
       <Tasks />
       <View>

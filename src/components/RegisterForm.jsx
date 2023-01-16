@@ -2,9 +2,9 @@ import { StyleSheet, View } from 'react-native';
 import TODoButton from './TODoButton';
 import InputForm from './InputForm';
 import { useState } from 'react';
-import { BASE_PATH } from '../configs/api-url';
-import clientAxios from '../configs/clientAxios';
-import localStorage from '../helpers/localStorage';
+import { BASE_PATH } from '@configs/api-url';
+import clientAxios from '@configs/clientAxios';
+import localStorage from '@helpers/localStorage';
 
 const FORM_FIELDS = {
   name: '',
@@ -29,7 +29,7 @@ const RegisterForm = ({ navigation }) => {
         } = await clientAxios.post(BASE_PATH.REGISTER_USER, formData);
         localStorage.setItem('token', token);
         setFormData(FORM_FIELDS);
-        navigation.navigate('Login');
+        navigation.navigate('ToDoList');
       } catch (error) {
         console.log({ error });
       }
