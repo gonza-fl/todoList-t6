@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
   touchableOpacitybttn: {
     flexBasis: 50,
     backgroundColor: '#58d0e0',
-    borderRadius: 19,
+    borderRadius: 25,
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 10,

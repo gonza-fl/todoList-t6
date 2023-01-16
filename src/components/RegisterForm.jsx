@@ -75,8 +75,8 @@ export default RegisterForm;
 const styles = StyleSheet.create({
   containerInput: {
     flexDirection: 'column',
-    justifyContent: 'space-evenly',
     marginTop: 30,
+    width: '90%',
   },
   lastTextInput: {
     marginBottom: 30,

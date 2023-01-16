@@ -39,6 +39,10 @@ const ToDoListScreen = () => {
             <Button title='delete' onPress={() => handleDelete(task._id)} />
           </View>
         ))}
+      <Tasks />
+      <View>
+        <TaskButton />
+      </View>
     </View>
   );
 };
@@ -47,8 +51,8 @@ export default ToDoListScreen;
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: '#161819',
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
   },
 });
