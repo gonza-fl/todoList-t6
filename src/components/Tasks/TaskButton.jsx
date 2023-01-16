@@ -1,7 +1,7 @@
 import { Modal, TouchableOpacity, Text, View, StyleSheet } from 'react-native';
 import { useState } from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
-import InputForm from './InputForm';
+import InputForm from '../InputForm';
 
 const TaskButton = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);

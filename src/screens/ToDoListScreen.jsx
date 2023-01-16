@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { BASE_PATH } from '@configs/api-url';
 import clientAxios from '@configs/clientAxios';
+import TaskButton from '@components/Tasks/TaskButton';
+import Task from '../components/Tasks/Task';
 
 const ToDoListScreen = () => {
   const [tasks, setTasks] = useState(null);
@@ -10,13 +12,9 @@ const ToDoListScreen = () => {
     getAllTasks();
   }, []);
 
-  const handleDelete = async id => {
-    try {
-      await clientAxios.delete(`${BASE_PATH.TASK}/${id}`);
-      getAllTasks();
-    } catch (error) {
-      console.log('🚀 ~ file: ToDoListScreen.jsx:31 ~ handlePress ~ error', error);
-    }
+  const changeTaskState = async (id, completed) => {
+    await clientAxios.put(`${BASE_PATH.TASK}/${id}`, { completed: !completed });
+    getAllTasks();
   };
 
   const getAllTasks = async () => {
@@ -29,17 +27,28 @@ const ToDoListScreen = () => {
       console.log('🚀 ~ file: ToDoListScreen.jsx:18 ~ getAllTasks ~ error', error);
     }
   };
+  const handleDelete = async id => {
+    try {
+      await clientAxios.delete(`${BASE_PATH.TASK}/${id}`);
+      getAllTasks();
+    } catch (error) {
+      console.log('🚀 ~ file: ToDoListScreen.jsx:31 ~ handlePress ~ error', error);
+    }
+  };
 
   return (
     <View style={styles.container}>
       {tasks &&
         tasks.map((task, i) => (
-          <View key={task._id}>
-            <Text>{task.description}</Text>
-            <Button title='delete' onPress={() => handleDelete(task._id)} />
-          </View>
+          <Task
+            key={i}
+            title={task.title}
+            description={task.description}
+            handleDelete={() => handleDelete(task._id)}
+            changeTaskState={() => changeTaskState(task._id, task.completed)}
+            isCompleted={task.completed}
+          />
         ))}
-      <Tasks />
       <View>
         <TaskButton />
       </View>
