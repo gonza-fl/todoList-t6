@@ -20,6 +20,12 @@ const LoginForm = ({ navigation }) => {
         password,
       });
       await localStorage.setItem('token', token);
+      showMessage({
+        message: 'Hola de nuevo! 🧉',
+        description: 'Usted ha iniciado sesion',
+        backgroundColor: '#303030',
+        icon: 'info',
+      });
       navigation.navigate('ToDoList');
     } catch (error) {
       showMessage({
