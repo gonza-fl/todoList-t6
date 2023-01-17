@@ -6,9 +6,9 @@ const RegisterScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Image source={{ uri: elipse }} style={[styles.bgImage, styles.nose]} />
-      <Text style={[styles.textBold, styles.titulo]}>Te damos la bienvenida, </Text>
+      <Text style={[styles.textBold, styles.titulo]}>Te damos la bienvenida </Text>
       <Text style={[styles.subTitulo]}>
-        registrate para que te ayudemos a cumplir con tus tareas.
+        Registrate para que te ayudemos a cumplir con tus tareas.
       </Text>
 
       <RegisterForm navigation={navigation} />
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
     marginTop: 120,
     marginBottom: 10,
-    color: '#e8e8e9',
+    color: '#e8e8e9', 
   },
   subTitulo: {
     color: '#e8e8e9',
