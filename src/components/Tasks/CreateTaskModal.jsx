@@ -4,6 +4,7 @@ import { Modal, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import clientAxios from '@configs/clientAxios';
 import { BASE_PATH } from '@configs/api-url';
 import InputForm from '../InputForm';
+import { showMessage } from 'react-native-flash-message';
 
 const INITIAL_DATA = {
   title: '',
@@ -35,10 +36,20 @@ export default function CreateTaskModal({
         }
         renderAllTasks();
       } else {
-        console.log('Nombre vacio');
+        showMessage({
+          message: 'Error',
+          description: 'El nombre de la task no puede estar vacio',
+          type: 'danger',
+          icon: 'danger',
+        });
       }
     } catch (error) {
-      console.log('🚀 ~ file: CreateTaskModal.jsx:39 ~ handlePress ~ error', error);
+      showMessage({
+        message: 'Error',
+        description: error.message,
+        type: 'danger',
+        icon: 'danger',
+      });
     } finally {
       closeModal();
     }

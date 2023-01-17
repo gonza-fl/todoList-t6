@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { BASE_PATH } from '@configs/api-url';
 import clientAxios from '@configs/clientAxios';
 import localStorage from '@helpers/localStorage';
+import { showMessage } from 'react-native-flash-message';
 
 const LoginForm = ({ navigation }) => {
   const [email, setEmail] = useState('');
@@ -21,7 +22,12 @@ const LoginForm = ({ navigation }) => {
       await localStorage.setItem('token', token);
       navigation.navigate('ToDoList');
     } catch (error) {
-      console.log('🚀 ~ file: LoginForm.jsx:26 ~ login ~ error', error);
+      showMessage({
+        message: 'Error',
+        description: error.message,
+        type: 'danger',
+        icon: 'danger',
+      });
     }
   };
 

@@ -91,7 +91,12 @@ const RegisterForm = ({ navigation }) => {
       });
       navigation.navigate('Login');
     } catch (error) {
-      console.log({ error });
+      showMessage({
+        message: 'Error',
+        description: error.message,
+        type: 'danger',
+        icon: 'danger',
+      });
     }
   };
 
