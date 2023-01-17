@@ -9,7 +9,7 @@ export const LogOutComponent = () => {
     <TouchableOpacity
       style={styles.buttonLogOut}
       onPress={() => {
-        localStorage.removeItem('key');
+        localStorage.removeItem('token');
         navigation.navigate('Login');
         showMessage({
           message: 'Adios! 👋🏽',

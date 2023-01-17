@@ -15,6 +15,7 @@ export default function App() {
       <StatusBar barStyle='auto' />
       <NavigationContainer>
         <Stack.Navigator
+          initialRouteName='GetStarted'
           screenOptions={{
             headerShown: false,
           }}>

@@ -7,8 +7,9 @@ import Task from '@components/Tasks/Task';
 import { LogOutComponent } from '../components/LogOutComponent';
 import CreateTaskModal from '../components/Tasks/CreateTaskModal';
 import { showMessage } from 'react-native-flash-message';
+import localStorage from '../helpers/localStorage';
 
-const ToDoListScreen = ({ navigation, isLoggedIn }) => {
+const ToDoListScreen = ({ navigation }) => {
   const [tasks, setTasks] = useState(null);
   const [targetTask, setTargetTask] = useState({ id: '', title: '', description: '' });
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -20,7 +21,10 @@ const ToDoListScreen = ({ navigation, isLoggedIn }) => {
   }, []);
 
   const checkToken = async () => {
-    if (!isLoggedIn) navigation.navigate('GetStarted');
+    const token = await localStorage.getItem('token');
+    if (!token) {
+      navigation.navigate('GetStarted');
+    }
   };
   const changeTaskState = async (id, completed) => {
     try {
