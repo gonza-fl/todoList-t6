@@ -23,8 +23,23 @@ const ToDoListScreen = ({ navigation, isLoggedIn }) => {
     if (!isLoggedIn) navigation.navigate('GetStarted');
   };
   const changeTaskState = async (id, completed) => {
-    await clientAxios.put(`${BASE_PATH.TASK}/${id}`, { completed: !completed });
-    renderAllTasks();
+    try {
+      await clientAxios.put(`${BASE_PATH.TASK}/${id}`, { completed: !completed });
+      renderAllTasks();
+      showMessage({
+        message: 'Actualizacion de estado',
+        description: !completed ? 'Tarea completada' : 'Tarea pendiente',
+        type: 'info',
+        icon: 'info',
+      });
+    } catch (error) {
+      showMessage({
+        message: 'Error',
+        description: error.message,
+        type: 'danger',
+        icon: 'danger',
+      });
+    }
   };
 
   const handleEdit = (id, title, description) => {

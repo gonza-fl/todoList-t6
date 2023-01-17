@@ -1,6 +1,7 @@
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 import localStorage from '@helpers/localStorage';
 import { useNavigation } from '@react-navigation/native';
+import { showMessage } from 'react-native-flash-message';
 
 export const LogOutComponent = () => {
   const navigation = useNavigation();
@@ -10,6 +11,12 @@ export const LogOutComponent = () => {
       onPress={() => {
         localStorage.removeItem('key');
         navigation.navigate('Login');
+        showMessage({
+          message: 'Adios! 👋🏽',
+          description: 'Usted ha cerrado sesión',
+          backgroundColor: '#303030',
+          icon: 'info',
+        });
       }}>
       <Text style={styles.textDelete}>LogOut</Text>
     </TouchableOpacity>

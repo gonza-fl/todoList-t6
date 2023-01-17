@@ -85,7 +85,7 @@ const RegisterForm = ({ navigation }) => {
       setFormData(FORM_FIELDS);
       showMessage({
         message: 'Exito',
-        description: 'Se ha registrado exitosamente',
+        description: 'Usted se ha registrado exitosamente',
         type: 'success',
         icon: 'success',
       });
