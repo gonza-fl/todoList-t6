@@ -29,7 +29,7 @@ const RegisterForm = ({ navigation }) => {
         } = await clientAxios.post(BASE_PATH.REGISTER_USER, formData);
         localStorage.setItem('token', token);
         setFormData(FORM_FIELDS);
-        navigation.navigate('ToDoList');
+        navigation.navigate('Login');
       } catch (error) {
         console.log({ error });
       }
