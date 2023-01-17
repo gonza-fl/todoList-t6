@@ -1,7 +1,14 @@
 import { LinearGradient } from 'expo-linear-gradient';
 import { StyleSheet, Switch, Text, TouchableOpacity, View } from 'react-native';
 
-export default function Task({ title, description, handleDelete, isCompleted, changeTaskState }) {
+export default function Task({
+  title,
+  description,
+  handleDelete,
+  isCompleted,
+  changeTaskState,
+  handleEdit,
+}) {
   return (
     <View style={styles.cardContainer}>
       {(isCompleted && (
@@ -13,7 +20,7 @@ export default function Task({ title, description, handleDelete, isCompleted, ch
       </View>
       <View style={styles.margin}>
         <View style={styles.buttonContainer}>
-          <TouchableOpacity style={styles.buttonEdit}>
+          <TouchableOpacity style={styles.buttonEdit} onPress={handleEdit}>
             <Text style={styles.white}>Editar</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.buttonDelete} onPress={handleDelete}>

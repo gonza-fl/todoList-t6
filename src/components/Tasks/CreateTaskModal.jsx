@@ -10,25 +10,44 @@ const INITIAL_DATA = {
   description: '',
 };
 
-export default function CreateTaskModal({ isModalVisible, setIsModalVisible, renderAllTasks }) {
-  const [taskData, setTaskData] = useState({
-    title: '',
-    description: '',
-  });
-
+export default function CreateTaskModal({
+  setIsModalVisible,
+  renderAllTasks,
+  isModalVisible,
+  targetTask,
+  setTargetTask,
+  isEdit,
+}) {
+  const [taskData, setTaskData] = useState(INITIAL_DATA);
   const handleOnChange = (key, text) => {
+    setTargetTask({ ...targetTask, [key]: text });
     setTaskData({ ...taskData, [key]: text });
   };
 
-  const createTask = async () => {
-    setIsModalVisible(false);
-    if (taskData.title.length) {
-      await clientAxios.post(`${BASE_PATH.TASK}`, taskData);
-      renderAllTasks();
+  const handlePress = async () => {
+    try {
+      if (targetTask.title.length) {
+        if (!isEdit) {
+          await create(taskData);
+        }
+        if (isEdit) {
+          await edit(targetTask);
+        }
+        renderAllTasks();
+      } else {
+        console.log('Nombre vacio');
+      }
+    } catch (error) {
+      console.log('🚀 ~ file: CreateTaskModal.jsx:39 ~ handlePress ~ error', error);
+    } finally {
+      closeModal();
     }
   };
-  const createTaskCanceled = () => {
+  const create = data => clientAxios.post(BASE_PATH.TASK, data);
+  const edit = data => clientAxios.put(`${BASE_PATH.TASK}/${targetTask.id}`, data);
+  const closeModal = () => {
     setTaskData(INITIAL_DATA);
+    setTargetTask({ ...INITIAL_DATA, id: '' });
     setIsModalVisible(false);
   };
   return (
@@ -44,20 +63,22 @@ export default function CreateTaskModal({ isModalVisible, setIsModalVisible, ren
             style={styles.input}
             Placeholder='Titulo'
             handleChangeText={text => handleOnChange('title', text)}
+            value={isEdit ? targetTask.title : taskData.title}
           />
           <InputForm
             style={styles.input}
             Placeholder='Descripcion de la tarea'
             handleChangeText={text => handleOnChange('description', text)}
+            value={isEdit ? targetTask.description : taskData.description}
           />
           <View style={styles.buttonsContainer}>
-            <LinearGradient colors={['#ffe100', '#ff4d00', '#ff0000']} style={styles.gradient1}>
-              <TouchableOpacity style={styles.touchableOpacity1} onPress={createTaskCanceled}>
+            <LinearGradient colors={['#a00498', '#f7bd56']} style={styles.gradient1}>
+              <TouchableOpacity style={styles.touchableOpacity1} onPress={closeModal}>
                 <Text style={styles.closeButtonText}>Cerrar</Text>
               </TouchableOpacity>
             </LinearGradient>
-            <LinearGradient colors={['#ffe100', '#ff4d00', '#ff0000']} style={styles.gradient1}>
-              <TouchableOpacity style={styles.touchableOpacity1} onPress={createTask}>
+            <LinearGradient colors={['#a00498', '#f7bd56']} style={styles.gradient1}>
+              <TouchableOpacity style={styles.touchableOpacity1} onPress={handlePress}>
                 <Text style={styles.closeButtonText}>Guardar</Text>
               </TouchableOpacity>
             </LinearGradient>
@@ -124,5 +145,21 @@ const styles = StyleSheet.create({
   closeButtonText: {
     color: '#fff',
     textAlign: 'center',
+  },
+  gradient1: {
+    width: 70,
+    height: 40,
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+    // marginBottom: 20,
+  },
+  touchableOpacity1: {
+    width: 60,
+    height: 30,
+    borderRadius: 6,
+    backgroundColor: '#161819',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });

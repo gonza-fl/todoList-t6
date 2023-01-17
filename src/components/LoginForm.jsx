@@ -10,20 +10,19 @@ const LoginForm = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const login = () => {
-    clientAxios
-      .post(
-        BASE_PATH.LOGIN,
-        JSON.stringify({
-          email,
-          password,
-        }),
-      )
-      .then(({ data: { token } }) => {
-        localStorage.setItem('token', token);
-        navigation.navigate('ToDoList');
-      })
-      .catch(err => console.log({ error: err }));
+  const login = async () => {
+    try {
+      const {
+        data: { token },
+      } = await clientAxios.post(BASE_PATH.LOGIN, {
+        email,
+        password,
+      });
+      await localStorage.setItem('token', token);
+      navigation.navigate('ToDoList');
+    } catch (error) {
+      console.log('🚀 ~ file: LoginForm.jsx:26 ~ login ~ error', error);
+    }
   };
 
   return (
