@@ -2,8 +2,6 @@ import React from 'react'
 import { StyleSheet, Text, View, Image} from 'react-native';
 import TODoButton from '../components/TODoButton';
 
-
-
 const GetStartedScreen = ({ navigation }) => {
 
     return(
