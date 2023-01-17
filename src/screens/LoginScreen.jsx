@@ -5,9 +5,9 @@ import LoginForm from '@components/LoginForm';
 const LoginScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <Text style={[styles.textBold, styles.titulo]}> Bienvenido, </Text>
+      <Text style={[styles.textBold, styles.titulo]}> Bienvenido </Text>
       <Image source={{ uri: login }} style={[styles.bgImage, styles.nose]} />
-      <Text style= {[styles.subTitulo1]}> coloca tus datos para ingresar a tu cuenta. </Text>
+      <Text style= {[styles.subTitulo1]}> Coloca tus datos para ingresar a tu cuenta. </Text>
       <LoginForm navigation={navigation} />
       <Text style= {[styles.subTitulo]}> ¿No tenés una cuenta? </Text>
       <TouchableOpacity onPress={() => navigation.navigate('Register')}>
