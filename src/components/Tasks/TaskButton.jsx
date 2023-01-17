@@ -1,7 +1,5 @@
 import { TouchableOpacity, Text, View, StyleSheet } from 'react-native';
-import { useState } from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
-import CreateTaskModal from './CreateTaskModal';
 
 const TaskButton = ({ setIsModalVisible, setIsEdit }) => {
   return (

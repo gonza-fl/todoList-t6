@@ -14,7 +14,7 @@ const ToDoListScreen = ({ navigation, isLoggedIn }) => {
   const [isEdit, setIsEdit] = useState(false);
 
   useEffect(() => {
-    // checkToken();
+    checkToken();
     renderAllTasks();
   }, []);
 
