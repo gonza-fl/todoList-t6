@@ -30,9 +30,21 @@ export default function CreateTaskModal({
       if (targetTask.title.length) {
         if (!isEdit) {
           await create(taskData);
+          showMessage({
+            message: 'Genial',
+            description: 'Tarea creada con exito',
+            type: 'success',
+            icon: 'sucess',
+          });
         }
         if (isEdit) {
           await edit(targetTask);
+          showMessage({
+            message: 'Genial',
+            description: 'Tarea actualizada con exito',
+            type: 'success',
+            icon: 'sucess',
+          });
         }
         renderAllTasks();
       } else {

@@ -119,6 +119,7 @@ const ToDoListScreen = ({ navigation, isLoggedIn }) => {
         targetTask={targetTask}
         setTargetTask={setTargetTask}
         isEdit={isEdit}
+        setIsEdit={setIsEdit}
       />
     </View>
   );
