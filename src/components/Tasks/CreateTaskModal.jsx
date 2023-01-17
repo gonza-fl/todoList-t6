@@ -90,7 +90,6 @@ export default function CreateTaskModal({
 }
 
 const styles = StyleSheet.create({
-  // modal pop-up
   text: {
     color: '#fff',
     fontSize: 30,
@@ -131,7 +130,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   buttonsContainer: {
-    // flex: 2,
     flexDirection: 'row',
     justifyContent: 'space-evenly',
     height: 'auto',
@@ -152,7 +150,6 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     justifyContent: 'center',
     alignItems: 'center',
-    // marginBottom: 20,
   },
   touchableOpacity1: {
     width: 60,

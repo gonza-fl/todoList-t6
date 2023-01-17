@@ -21,8 +21,6 @@ const TaskButton = ({ setIsModalVisible, setIsEdit }) => {
 export default TaskButton;
 
 const styles = StyleSheet.create({
-  // container global
-
   taskButton: {
     flexBasis: 50,
     borderRadius: 50,
@@ -30,9 +28,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginBottom: 20,
   },
-
-  // estilos boton
-
   gradient: {
     width: 85,
     height: 85,

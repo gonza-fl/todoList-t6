@@ -6,6 +6,7 @@ import TaskButton from '@components/Tasks/TaskButton';
 import Task from '@components/Tasks/Task';
 import { LogOutComponent } from '../components/LogOutComponent';
 import CreateTaskModal from '../components/Tasks/CreateTaskModal';
+import { showMessage } from 'react-native-flash-message';
 
 const ToDoListScreen = ({ navigation, isLoggedIn }) => {
   const [tasks, setTasks] = useState(null);
@@ -43,7 +44,12 @@ const ToDoListScreen = ({ navigation, isLoggedIn }) => {
       } = await clientAxios(`${BASE_PATH.TASK}`);
       setTasks(data.reverse());
     } catch (error) {
-      console.log('🚀 ~ file: ToDoListScreen.jsx:18 ~ renderAllTasks ~ error', error);
+      showMessage({
+        message: 'Error',
+        description: error.message,
+        type: 'danger',
+        icon: 'danger',
+      });
     }
   };
   const handleDelete = async id => {
@@ -51,7 +57,12 @@ const ToDoListScreen = ({ navigation, isLoggedIn }) => {
       await clientAxios.delete(`${BASE_PATH.TASK}/${id}`);
       renderAllTasks();
     } catch (error) {
-      console.log('🚀 ~ file: ToDoListScreen.jsx:31 ~ handlePress ~ error', error);
+      showMessage({
+        message: 'Error',
+        description: error.message,
+        type: 'danger',
+        icon: 'danger',
+      });
     }
   };
 
