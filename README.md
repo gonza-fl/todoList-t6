@@ -24,9 +24,24 @@ ___
 * Escanee el código QR desde el móvil o abra la pestaña de exploración, presione buscar e ingrese la URL que se muestra en la terminal.
 ___
 ## Colaboradores
+<div display="flex";justify-content="space-around">
+ <div> 
+ <a href="https://github.com/gonza-fl" target="_blank" rel="noopener noreferrer"  ><img width="40" style="border-radius:50%" src="https://avatars.githubusercontent.com/u/29445888?v=4" alt="avatar"><br>gonza_fl</a>
+</div>
 
-<a href="https://github.com/gonza-fl/team6-project/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=gonza-fl/team6-project" />
-</a>
+ <div> 
+  <a href="https://github.com/UpmarketBat23" target="_blank" rel="noopener noreferrer" ><img width="40" style="border-radius:50%" src="https://avatars.githubusercontent.com/u/75809408?s=64&v=4" alt="avatar"><br>UpmarketBat23</a>
+</div> 
 
-Made with [contrib.rocks](https://contrib.rocks).
+<div> 
+<a href="https://github.com/karlacosta1" target="_blank" rel="noopener noreferrer" ><img width="40" style="border-radius:50%" src="https://avatars.githubusercontent.com/u/120480696?s=64&v=4" alt="avatar"><br>karlacosta1</a>
+
+</div> 
+<div> 
+<a href="https://github.com/danielaescandar" target="_blank" rel="noopener noreferrer" ><img width="40" style="border-radius:50%" src="https://avatars.githubusercontent.com/u/68254254?s=64" alt="avatar"><br>danielaescandar</a>
+         
+</div> 
+
+
+</div>
+

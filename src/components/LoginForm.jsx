@@ -2,23 +2,27 @@ import { StyleSheet, View } from 'react-native';
 import TODoButton from './TODoButton';
 import InputForm from './InputForm';
 import { useState } from 'react';
-import { BASE_PATH } from '../configs/api-url';
+import { BASE_PATH } from '@configs/api-url';
+import clientAxios from '@configs/clientAxios';
+import localStorage from '@helpers/localStorage';
 
-const LoginForm = () => {
+const LoginForm = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const login = () => {
-    fetch(BASE_PATH.LOGIN, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        email,
-        password,
-      }),
-    })
-      .then(data => data.json())
-      .then(json => console.log(json))
+    clientAxios
+      .post(
+        BASE_PATH.LOGIN,
+        JSON.stringify({
+          email,
+          password,
+        }),
+      )
+      .then(({ data: { token } }) => {
+        localStorage.setItem('token', token);
+        navigation.navigate('ToDoList');
+      })
       .catch(err => console.log({ error: err }));
   };
 
@@ -37,7 +41,7 @@ const LoginForm = () => {
           isHiden={true}
         />
       </View>
-      <TODoButton text='Iniciar Sesion' handleOnpress={login} />
+      <TODoButton text='Iniciar sesión' handleOnpress={login} />
     </View>
   );
 };
@@ -47,8 +51,8 @@ export default LoginForm;
 const styles = StyleSheet.create({
   containerInput: {
     flexDirection: 'column',
-    justifyContent: 'space-evenly',
     marginTop: 30,
+    width: '90%',
   },
   lastTextInput: {
     marginBottom: 30,
