@@ -1,7 +1,7 @@
 import { StyleSheet, View } from 'react-native';
 import TODoButton from './TODoButton';
 import InputForm from './InputForm';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { BASE_PATH } from '@configs/api-url';
 import clientAxios from '@configs/clientAxios';
 import localStorage from '@helpers/localStorage';
@@ -10,6 +10,11 @@ import { showMessage } from 'react-native-flash-message';
 const LoginForm = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  useEffect(() => {
+    setEmail('');
+    setPassword('');
+  }, []);
 
   const login = async () => {
     try {

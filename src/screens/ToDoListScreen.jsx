@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { FlatList, SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import { BASE_PATH } from '@configs/api-url';
 import clientAxios from '@configs/clientAxios';
 import TaskButton from '@components/Tasks/TaskButton';
@@ -86,24 +86,26 @@ const ToDoListScreen = ({ navigation }) => {
   };
 
   return (
-    <View
+    <SafeAreaView
       style={[styles.container, { justifyContent: !tasks?.length ? 'space-around' : 'center' }]}>
       <LogOutComponent />
       {tasks?.length ? (
-        <ScrollView style={styles.containerScrollView}>
-          {tasks &&
-            tasks.map((task, i) => (
-              <Task
-                key={i}
-                title={task.title}
-                description={task.description}
-                handleDelete={() => handleDelete(task._id)}
-                handleEdit={() => handleEdit(task._id, task.title, task.description)}
-                changeTaskState={() => changeTaskState(task._id, task.completed)}
-                isCompleted={task.completed}
-              />
-            ))}
-        </ScrollView>
+        <FlatList
+          style={styles.flatListContainer}
+          data={tasks}
+          renderItem={({ item }) => (
+            <Task
+              // key={i}
+              title={item?.title}
+              description={item?.description}
+              handleDelete={() => handleDelete(item?._id)}
+              handleEdit={() => handleEdit(item?._id, item?.title, item?.description)}
+              changeTaskState={() => changeTaskState(item?._id, item?.completed)}
+              isCompleted={item?.completed}
+            />
+          )}
+          keyExtractor={(_item, i) => i}
+        />
       ) : (
         <View>
           <Text style={styles.titulo}>
@@ -125,7 +127,7 @@ const ToDoListScreen = ({ navigation }) => {
         isEdit={isEdit}
         setIsEdit={setIsEdit}
       />
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -136,7 +138,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#161819',
     flex: 1,
   },
-  containerScrollView: {
+  flatListContainer: {
     marginTop: 80,
   },
   titulo: {
